@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="upload.css">
     <link rel="stylesheet" href="cssGlobale.css">
+    <link rel="icon" href="android-chrome-192.png">
+    <link rel="icon" href="android-chrome-512.png">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Upload Document</title>
 </head>
@@ -49,11 +52,18 @@
 <span class="required">*</span></div>
 
 <label><h3>Document description:</h3></label>
-<textarea   id="description" class="X" rows="2" ></textarea>
+<textarea   id="description" class="description" rows="2" ></textarea>
 
+<form action="#" method="POST" enctype="multipart/form-data" novalidate>
+    <div class="form-group">
+<label for="file"><h3>choose file:</h3></label>
+<input type="file" id="file"  class="choose-file" required oninvalid="this.setCustomValidity('Please choose-file.')" oninput="this.setCustomValidity('')">
 
+<span class="required">*</span>
 
 <button  type="submit" class="upload">upload</button>
+<input type="file" id="fileInput" style="display: none" multiple />
+    
 
 
 </form>
@@ -62,6 +72,7 @@
 </div>
 
 <script>
+
     //sidear js
     fetch('index.html')
         .then(response => response.text())
@@ -100,6 +111,7 @@ document.querySelector('form').addEventListener('submit', function(e) {
         alert('Please fill in all required fields');
     }
 });
+
 
 </script>
 </body>
